@@ -25,6 +25,7 @@ yarn-error.log
 #IA
 .gemini/
 .qodo/
+.qoder/
 
 # Visual Studio Code
 /.vscode/*
