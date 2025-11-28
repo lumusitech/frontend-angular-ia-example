@@ -6,7 +6,9 @@
     "baseUrl": "./src",
     "paths": {
       "@components/*": ["app/presentation/components/*"],
-      "@pages/*": ["app/presentation/pages/*"]
+      "@pages/*": ["app/presentation/pages/*"],
+      "@uses-cases/*": ["app/core/use-cases/*"],
+      "@interfaces/*": ["app/interfaces/*"]
     },
     "strict": true,
     "noImplicitOverride": true,
