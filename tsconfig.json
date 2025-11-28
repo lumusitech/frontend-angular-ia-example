@@ -3,9 +3,10 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": ".",
+    "baseUrl": "./src",
     "paths": {
-      "@/*": ["./src/*"]
+      "@components/*": ["app/presentation/components/*"],
+      "@pages/*": ["app/presentation/pages/*"]
     },
     "strict": true,
     "noImplicitOverride": true,

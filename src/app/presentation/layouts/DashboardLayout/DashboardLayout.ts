@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { SidebarMenuItem } from '../../components/sidebarMenuItem/sidebarMenuItem';
-import { routes } from '../../../app.routes';
+import { SidebarMenuItem } from '@components/sidebarMenuItem/sidebarMenuItem';
+import { routes } from 'app/app.routes';
 
 @Component({
   selector: 'app-dashboard-layout',
