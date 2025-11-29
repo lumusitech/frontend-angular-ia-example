@@ -1,19 +1,19 @@
 import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import {
+  TextMessageEvent,
+  TextMessageBoxEvent,
   ChatMessage,
   MyMessage,
   TextMessageBox,
-  TextMessageBoxEvent,
   TextMessageBoxFile,
   TextMessageBoxSelect,
-  TextMessageEvent,
   TypingLoader,
 } from '@components/index';
-import { Message } from '@interfaces/index';
+import { Message } from '@interfaces/message.interface';
 import { OpenAiService } from 'app/presentation/services/openai.service';
 
 @Component({
-  selector: 'app-orthography-page',
+  selector: 'app-chat-template',
   imports: [
     ChatMessage,
     MyMessage,
@@ -22,10 +22,10 @@ import { OpenAiService } from 'app/presentation/services/openai.service';
     TextMessageBoxFile,
     TextMessageBoxSelect,
   ],
-  templateUrl: './orthographyPage.html',
+  templateUrl: './chatTemplate.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export default class OrthographyPage {
+export class ChatTemplate {
   messages = signal<Message[]>([
     { text: 'Hello world', isGpt: false },
     { text: 'Hello world!!!', isGpt: true },
