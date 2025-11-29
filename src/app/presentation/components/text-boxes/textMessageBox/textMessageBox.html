@@ -11,12 +11,14 @@
         class="flex w-full h-10 pl-4 text-gray-800 border rounded-xl focus:outline-none focus:border-indigo-300"
         [placeholder]="placeholder()"
         formControlName="prompt"
+        [autocomplete]="disableCorrections() ? 'off' : 'on'"
+        [spellcheck]="disableCorrections() ? 'off' : 'on'"
       />
     </div>
   </div>
 
   <div class="ml-4">
-    <button class="btn-primary" type="submit">
+    <button class="btn-primary" type="submit" [disabled]="form.invalid">
       <span class="mr-2">Send</span>
       <i class="fa-regular fa-paper-plane"></i>
     </button>

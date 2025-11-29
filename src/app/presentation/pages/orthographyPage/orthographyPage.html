@@ -7,5 +7,8 @@
     </div>
   </div>
 
-  <app-text-message-box />
+  <app-text-message-box
+    placeholder="What would you like to ask?"
+    (onMessage)="handleMessage($event)"
+  />
 </div>
