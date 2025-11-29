@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import {
   ChatMessage,
   MyMessage,
@@ -9,6 +9,7 @@ import {
   TextMessageEvent,
   TypingLoader,
 } from '@components/index';
+import { Message } from '@interfaces/index';
 
 @Component({
   selector: 'app-orthography-page',
@@ -24,6 +25,12 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class OrthographyPage {
+  messages = signal<Message[]>([
+    { text: 'Hello world', isGpt: false },
+    { text: 'Hello world!!!', isGpt: true },
+  ]);
+  isLoading = signal(false);
+
   handleMessage(prompt: string) {
     console.log(prompt);
   }
