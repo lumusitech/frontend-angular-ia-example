@@ -14,7 +14,6 @@ export interface TextMessageEvent {
 })
 export class TextMessageBoxFile {
   placeholder = input<string>('');
-  disableCorrections = input<boolean>(false);
   onMessage = output<TextMessageEvent>();
 
   fb = inject(FormBuilder);
