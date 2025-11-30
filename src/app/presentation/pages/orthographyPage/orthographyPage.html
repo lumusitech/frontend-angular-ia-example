@@ -1,38 +1,28 @@
 <div class="chat-container">
   <div class="chat-messages">
-    <div class="grid gap-y-2">
-      
-      <app-chat-message text="Write something to review..." />
+    <div class="gap-y-2 grid">
+      <app-chat-message text="Escribe algo para revisar la ortografía y gramática..." />
 
-      @for (message of messages(); track $index) {
+      @for (message of messages(); track $index) { 
         @if (message.isGpt) {
-          <app-chat-message [text]="message.text" />
+          <app-ia-message-orthography
+            [userScore]="message.info!.userScore"
+            [text]="message.text"
+            [errors]="message.info!.errors!"
+          />
         } @else {
           <app-my-message [text]="message.text" />
         }
       }
 
+      <!-- Loading -->
       @if (isLoading()) { <app-typing-loader /> }
     </div>
   </div>
 
-  <!-- <app-text-message-box
-    placeholder="What would you like to ask?"
+  <app-text-message-box
+    placeholder="Texto a revisar y corregir..."
     (onMessage)="handleMessage($event)"
-  /> -->
-
-  <!-- <app-text-message-box-file
-    placeholder="What would you like to ask?"
-    (onMessage)="handleMessageWithFile($event)"
-  /> -->
-
-  <app-text-message-box-select
-    placeholder="What would you like to ask?"
-    (onMessage)="handleMessageWithSelect($event)"
-    [options]="[
-      { id: '1', text: 'option1' },
-      { id: '2', text: 'option2' },
-      { id: '3', text: 'option3' }
-    ]"
+    [disableCorrections]="true"
   />
 </div>
