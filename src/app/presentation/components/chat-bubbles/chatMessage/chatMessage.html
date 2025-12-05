@@ -1,11 +1,11 @@
 <div class="col-start-1 col-end-9 p-3 rounded-lg">
   <div class="flex flex-row items-start">
-    <div class="flex items-center justify-center flex-shrink-0 w-10 h-10 bg-green-600 rounded-full">
+    <div class="flex flex-shrink-0 justify-center items-center bg-green-600 rounded-full w-10 h-10">
       G
     </div>
 
-    <div class="relative px-4 pt-3 pb-2 ml-3 text-sm bg-black bg-opacity-25 shadow rounded-xl">
-      {{ text() }}
+    <div class="relative bg-black bg-opacity-25 shadow ml-3 px-4 pt-3 pb-2 rounded-xl text-sm">
+      <markdown [data]="text()"></markdown>
     </div>
   </div>
 </div>
