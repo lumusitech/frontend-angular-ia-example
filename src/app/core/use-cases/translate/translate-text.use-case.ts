@@ -1,7 +1,7 @@
 import type { TranslateResponse } from '@interfaces/index';
 import { environment } from 'environments/environment.development';
 
-export const TranslateTextUseCase = async (prompt: string, lang: string) => {
+export const translateTextUseCase = async (prompt: string, lang: string) => {
   try {
     const resp = await fetch(`${environment.backendApi}/translate`, {
       method: 'POST',

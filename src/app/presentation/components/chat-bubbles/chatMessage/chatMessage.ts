@@ -9,4 +9,5 @@ import { MarkdownComponent } from 'ngx-markdown';
 })
 export class ChatMessage {
   text = input.required<string>();
+  audioUrl = input<string>();
 }
