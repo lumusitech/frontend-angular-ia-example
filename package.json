@@ -9,13 +9,22 @@
     "test": "ng test"
   },
   "prettier": {
-    "printWidth": 100,
+    "semi": true,
+    "trailingComma": "all",
     "singleQuote": true,
+    "printWidth": 100,
+    "tabWidth": 2,
     "overrides": [
       {
         "files": "*.html",
         "options": {
           "parser": "angular"
+        }
+      },
+      {
+        "files": "*.ts",
+        "options": {
+          "parser": "typescript"
         }
       }
     ]
@@ -42,6 +51,7 @@
     "@angular/compiler-cli": "^21.0.0",
     "git-commit-msg-linter": "^5.0.8",
     "jsdom": "^27.1.0",
+    "prettier": "^3.2.5",
     "typescript": "~5.9.2",
     "vitest": "^4.0.8"
   }

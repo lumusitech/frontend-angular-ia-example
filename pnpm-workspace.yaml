@@ -1,2 +1,6 @@
 onlyBuiltDependencies:
+  - '@parcel/watcher'
+  - esbuild
   - git-commit-msg-linter
+  - lmdb
+  - msgpackr-extract

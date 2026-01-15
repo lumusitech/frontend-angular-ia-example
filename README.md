@@ -57,3 +57,49 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+## Prettier Configuration for Angular Projects
+
+To ensure consistent code formatting, especially with the new Angular Control Flow syntax (`@if`, `@for`), follow these steps to configure Prettier in your Angular projects.
+
+### 1. Install Prettier
+
+Install Prettier as a dev dependency (version 3.2.5 or higher recommended):
+
+```bash
+pnpm add -D prettier
+```
+
+### 2. Configure `package.json`
+
+Add the following `prettier` configuration block directly to your `package.json` file. This configuration uses the native Angular parser included in Prettier 3.x, ensuring proper formatting for HTML templates and TypeScript files without needing extra plugins.
+
+```json
+"prettier": {
+  "semi": true,
+  "trailingComma": "all",
+  "singleQuote": true,
+  "printWidth": 100,
+  "tabWidth": 2,
+  "overrides": [
+    {
+      "files": "*.html",
+      "options": {
+        "parser": "angular"
+      }
+    },
+    {
+      "files": "*.ts",
+      "options": {
+        "parser": "typescript"
+      }
+    }
+  ]
+}
+```
+
+### Why this setup?
+
+- **Native Support:** Prettier 3.x includes native support for Angular's control flow syntax.
+- **No Extra Plugins:** You don't need `@prettier/plugin-angular` anymore.
+- **Centralized Config:** Keeping the config in `package.json` ensures all tools (VS Code, CLI) use the same settings.
