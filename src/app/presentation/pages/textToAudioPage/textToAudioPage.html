@@ -3,11 +3,16 @@
     <div class="grid gap-y-2">
       <app-chat-message text="Write something and I convert it to audio..." />
 
-      @for (message of messages(); track $index) { @if (message.isGpt) {
-      <app-chat-message [text]="message.text" [audioUrl]="message.audioUrl" />
-      } @else {
-      <app-my-message [text]="message.text" />
-      } } @if (isLoading()) { <app-typing-loader /> }
+      @for (message of messages(); track $index) {
+        @if (message.isGpt) {
+          <app-chat-message [text]="message.text" [audioUrl]="message.audioUrl" />
+        } @else {
+          <app-my-message [text]="message.text" />
+        }
+      }
+      @if (isLoading()) {
+        <app-typing-loader />
+      }
     </div>
   </div>
 

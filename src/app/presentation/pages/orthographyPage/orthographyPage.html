@@ -1,9 +1,9 @@
 <div class="chat-container">
   <div class="chat-messages">
-    <div class="gap-y-2 grid">
+    <div class="grid gap-y-2">
       <app-chat-message text="Escribe algo para revisar la ortografía y gramática..." />
 
-      @for (message of messages(); track $index) { 
+      @for (message of messages(); track $index) {
         @if (message.isGpt) {
           <app-ia-message-orthography
             [userScore]="message.info!.userScore"
@@ -16,7 +16,9 @@
       }
 
       <!-- Loading -->
-      @if (isLoading()) { <app-typing-loader /> }
+      @if (isLoading()) {
+        <app-typing-loader />
+      }
     </div>
   </div>
 
