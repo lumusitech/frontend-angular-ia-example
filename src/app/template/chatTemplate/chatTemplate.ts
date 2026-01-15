@@ -37,11 +37,11 @@ export class ChatTemplate {
     console.log(prompt);
   }
 
-  handleMessageWithFile({ prompt, file }: TextMessageEvent) {
-    console.log({ prompt, file });
-  }
+  // handleMessageWithFile({ prompt, file }: TextMessageEvent) {
+  //   console.log({ prompt, file });
+  // }
 
-  handleMessageWithSelect({ prompt, selectedOption }: TextMessageBoxEvent) {
-    console.log({ prompt, selectedOption });
-  }
+  // handleMessageWithSelect({ prompt, selectedOption }: TextMessageBoxEvent) {
+  //   console.log({ prompt, selectedOption });
+  // }
 }
