@@ -1,1 +1,27 @@
-<p>AssistantPage works!</p>
+<div class="chat-container">
+  <div class="chat-messages">
+    <div class="grid gap-y-2">
+      <app-chat-message text="Hola, soy Sam. ¿Cuál es tu nombre y en qué puedo ayudarte?" />
+
+      <!-- Chat messages loop -->
+      @for (message of messages(); track $index) {
+        <!-- Is Gpt -->
+        @if (message.isGpt) {
+          <app-chat-message [text]="message.text" />
+        } @else {
+          <!-- Is My Message -->
+          <app-my-message [text]="message.text" />
+        }
+      }
+      <!-- Is Loading -->
+      @if (isLoading()) {
+        <app-typing-loader />
+      }
+    </div>
+  </div>
+
+  <app-text-message-box
+    placeholder="What would you like to ask?"
+    (onMessage)="handleMessage($event)"
+  />
+</div>

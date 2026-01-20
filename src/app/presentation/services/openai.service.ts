@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {
   audioToTextUseCase,
+  createConversationUseCase,
   imageGenerationUseCase,
   imageVariationUseCase,
   orthographyUseCase,
@@ -45,5 +46,9 @@ export class OpenAiService {
 
   imageVariation(originalImage: string) {
     return from(imageVariationUseCase(originalImage));
+  }
+
+  createConversation(prompt: string, conversationId?: string) {
+    return from(createConversationUseCase({ prompt, conversationId }));
   }
 }
