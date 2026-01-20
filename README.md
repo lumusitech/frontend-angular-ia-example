@@ -1,78 +1,156 @@
-# AngularIa
+# Angular AI - OpenAI Client
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.0.
+This is a modern **Angular** application designed to interact with OpenAI's services through a **NestJS** backend. It serves as a comprehensive client interface demonstrating various AI capabilities, from text analysis and generation to audio processing and image creation.
 
-## Development server
+This project showcases modern Angular development practices, including **Signals**, the new **Control Flow** syntax (`@if`, `@for`), and a responsive UI built with **TailwindCSS**.
 
-To start a local development server, run:
+---
 
-```bash
-ng serve
-```
+## 📚 Table of Contents
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+- [Getting Started](#getting-started)
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Prettier Configuration](#prettier-configuration)
 
-## Code scaffolding
+---
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## 🚀 Getting Started
 
-```bash
-ng generate component component-name
-```
+Follow these instructions to get a local copy of the project up and running.
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+### Prerequisites
 
-```bash
-ng generate --help
-```
+- **Node.js** (Latest LTS recommended)
+- **pnpm** (Package manager)
+- A running instance of the **NestJS Backend** (expected at `http://localhost:3000`).
 
-## Building
+### Installation
 
-To build the project run:
+1. **Clone the repository:**
 
-```bash
-ng build
-```
+   ```bash
+   git clone <repository-url>
+   cd angular-ia
+   ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+2. **Install dependencies:**
+   This project uses `pnpm` for efficient package management.
 
-## Running unit tests
+   ```bash
+   pnpm install
+   ```
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+3. **Verify Environment Configuration:**
+   Check `src/environments/environment.ts`. By default, it connects to:
 
-```bash
-ng test
-```
+   ```typescript
+   export const environment = {
+     backendApi: 'http://localhost:3000/ai',
+   };
+   ```
 
-## Running end-to-end tests
+   Ensure your backend server is running on this port.
 
-For end-to-end (e2e) testing, run:
+4. **Start the Development Server:**
+   ```bash
+   ng serve
+   ```
+   Navigate to `http://localhost:4200/` in your browser. The app will automatically reload if you change any source files.
 
-```bash
-ng e2e
-```
+---
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+## ✨ Features
 
-## Additional Resources
+This application includes several modules, each dedicated to a specific AI capability:
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+### 1. 📝 Orthography Check
 
-## Prettier Configuration for Angular Projects
+**Goal:** Improve writing quality.
 
-To ensure consistent code formatting, especially with the new Angular Control Flow syntax (`@if`, `@for`), follow these steps to configure Prettier in your Angular projects.
+- **Function:** Analyzes user input and corrects spelling and grammatical errors.
+- **Example:** Input "Hellow world" → AI corrects to "Hello world" and explains the correction.
+
+### 2. ⚖️ Pros & Cons
+
+**Goal:** Decision making helper.
+
+- **Function:** Generates a comparative list of pros and cons for a given topic.
+- **Example:** Ask "Pros and cons of remote work" to get a structured comparison.
+
+### 3. 🌊 Pros & Cons (Stream)
+
+**Goal:** Real-time feedback.
+
+- **Function:** Similar to the standard Pros & Cons, but streams the response token by token as it's being generated, reducing perceived latency.
+
+### 4. 🗣️ Translate
+
+**Goal:** Language translation.
+
+- **Function:** Translates text from one language to another.
+- **Example:** Translate "Hello, how are you?" to Spanish, French, or German.
+
+### 5. 🔊 Text to Audio
+
+**Goal:** Text-to-Speech (TTS).
+
+- **Function:** Converts written text into spoken audio files. Useful for accessibility or creating audio content.
+
+### 6. 🎙️ Audio to Text
+
+**Goal:** Speech-to-Text (STT) / Transcription.
+
+- **Function:** Takes an audio file or voice recording and transcribes it into text.
+
+### 7. 🖼️ Image Generation
+
+**Goal:** Visual content creation.
+
+- **Function:** Generates images based on text prompts using models like DALL-E.
+- **Example:** "A futuristic city with flying cars at sunset."
+
+### 8. 🎨 Image Tuning
+
+**Goal:** Image editing and variation.
+
+- **Function:** Allows modifying or creating variations of an existing image based on new instructions.
+
+### 9. 🤖 Assistant
+
+**Goal:** General purpose helper.
+
+- **Function:** A conversational agent that can handle general queries, maintain context, and assist with various tasks.
+
+---
+
+## 🛠️ Tech Stack
+
+This project is built with the latest web technologies:
+
+- **[Angular](https://angular.io/)**: Framework version 21+.
+  - **Signals**: For reactive state management.
+  - **Control Flow**: New syntax (`@if`, `@for`, `@switch`) for cleaner templates.
+  - **Standalone Components**: Modular architecture without NgModules.
+- **[TailwindCSS](https://tailwindcss.com/)**: Utility-first CSS framework for rapid UI development.
+- **[ngx-markdown](https://github.com/jfcere/ngx-markdown)**: For rendering Markdown content within chat messages.
+- **[pnpm](https://pnpm.io/)**: Fast, disk space efficient package manager.
+
+---
+
+## 💅 Prettier Configuration
+
+To ensure consistent code formatting, especially with the new Angular Control Flow syntax, this project uses a specific Prettier configuration.
 
 ### 1. Install Prettier
-
-Install Prettier as a dev dependency (version 3.2.5 or higher recommended):
 
 ```bash
 pnpm add -D prettier
 ```
 
-### 2. Configure `package.json`
+### 2. Configuration (`package.json`)
 
-Add the following `prettier` configuration block directly to your `package.json` file. This configuration uses the native Angular parser included in Prettier 3.x, ensuring proper formatting for HTML templates and TypeScript files without needing extra plugins.
+We configure Prettier directly in `package.json` to use the native **Angular parser** included in Prettier 3.x. This supports the new control flow syntax without requiring extra plugins.
 
 ```json
 "prettier": {
@@ -97,9 +175,3 @@ Add the following `prettier` configuration block directly to your `package.json`
   ]
 }
 ```
-
-### Why this setup?
-
-- **Native Support:** Prettier 3.x includes native support for Angular's control flow syntax.
-- **No Extra Plugins:** You don't need `@prettier/plugin-angular` anymore.
-- **Centralized Config:** Keeping the config in `package.json` ensures all tools (VS Code, CLI) use the same settings.
